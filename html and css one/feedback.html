@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feed back</title>
+    <link rel="stylesheet" href="feedback.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="menu-bar">
+        <h1 class="logo">Resume<span>Builder</span></h1>
+        <ul>
+            <li><a href="firstpage.html">Home</a></li>
+            <li><a href="About us .html">About</a></li>
+            <li><a href="index.html">create of resume</a></li>
+            <li><a href="contact.html">contact us</a></li>
+            <li><a href="Faq's.html">FAQ's</a></li>
+        </ul>
+    </div>
+    <div class="wrapper">
+        <form action="thanks.html">
+            <h1>Feed back</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Name" required />
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Message" required />
+                <i class='bx bxs-message-rounded-dots'></i>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+    </div>
+    <script>
+        document.getElementById("thanks.html").addEventListener("submit", function(event) {
+            event.preventDefault();
+            window.location.href = "thanks.html";
+        });
+    </script>
+</body>
+
+</html>

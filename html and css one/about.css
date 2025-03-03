@@ -1,0 +1,121 @@
+/* Reset default margin and padding */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Background styling */
+
+body {
+    background: url("../videos/natur.png") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(223, 217, 217, 0.7);
+    background: transparent;
+    padding: 15px 30px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+/* Style the logo */
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #f4b400;
+}
+
+
+/* Style the navigation menu */
+
+.menu-bar ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu-bar ul li {
+    margin: 0 15px;
+}
+
+.menu-bar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu-bar ul li a:hover {
+    color: #f4b400;
+}
+
+
+/* About page content */
+
+.about-container {
+    background: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    padding: 40px;
+    max-width: 700px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.about-container h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.about-container p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.about-container ul {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.about-container ul li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+/* Button styling */
+
+.btn {
+    display: inline-block;
+    background: #f4b400;
+    color: black;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #ffcc00;
+    transform: scale(1.05);
+}

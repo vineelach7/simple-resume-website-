@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs</title>
+    <link rel="stylesheet" href="faqs.css" />
+</head>
+
+<body>
+    <div class="menu-bar">
+        <h1 class="logo">Resume<span>Builder</span></h1>
+        <ul>
+            <li><a href="firstpage.html">Home</a></li>
+            <li><a href="About us .html">About</a></li>
+            <li><a href="index.html">Create Resume</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="Faq's.html">FAQ's</a></li>
+        </ul>
+    </div>
+
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">1. Is Resume Builder free to use?</button>
+            <div class="faq-answer">
+                <p>
+                    Yes! Our Resume Builder is completely free to use. You can create, customize, and download resumes without any charges. We believe in providing job seekers with easy-to-use tools to build their professional profiles effortlessly.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+          2. Can I download my resume in PDF format?
+        </button>
+            <div class="faq-answer">
+                <p>
+                    Yes! Our platform allows you to download your resume in high-quality PDF format, ensuring that it looks professional and is compatible with all job applications.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+          3. Is there a template for different resume formats?
+        </button>
+            <div class="faq-answer">
+                <p>
+                    Yes! We offer multiple templates to suit different industries and job levels. Whether you're a fresher, an experienced professional, or looking for a creative resume, we have the right format for you.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+          4. Can I edit my resume after creating it?
+        </button>
+            <div class="faq-answer">
+                <p>
+                    Yes! You can edit your resume anytime. Just log in, update your details, and re-download the updated version. This ensures your resume stays up to date with your latest skills and experience.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+          5. Do I need an account to create a resume?
+        </button>
+            <div class="faq-answer">
+                <p>
+                    Yes! Creating an account allows you to save, edit, and access your resume anytime. It also helps you store multiple resumes for different job applications.
+                </p>
+            </div>
+        </div>
+
+        <h3>Post a Question</h3>
+        <textarea id="question-box" placeholder="Type your question here..."></textarea>
+        <button id="post-btn">Post Question</button>
+
+        <h3>User Questions</h3>
+        <div id="user-questions"></div>
+    </div>
+
+    <script>
+        // Toggle FAQ answers
+        document.querySelectorAll(".faq-question").forEach((button) => {
+            button.addEventListener("click", () => {
+                const answer = button.nextElementSibling;
+                answer.style.display =
+                    answer.style.display === "block" ? "none" : "block";
+            });
+        });
+
+        // Post a question feature
+        document
+            .getElementById("post-btn")
+            .addEventListener("click", function() {
+                let questionText = document
+                    .getElementById("question-box")
+                    .value.trim();
+                if (questionText !== "") {
+                    let newQuestion = document.createElement("div");
+                    newQuestion.classList.add("faq-item");
+                    newQuestion.innerHTML = `<button class="faq-question">${questionText}</button>
+                                         <div class="faq-answer"><p>Thank you for your question! Our team will review and respond soon.</p></div>`;
+
+                    document.getElementById("user-questions").appendChild(newQuestion);
+
+                    // Clear the input box
+                    document.getElementById("question-box").value = "";
+
+                    // Add click event for new question toggle
+                    newQuestion
+                        .querySelector(".faq-question")
+                        .addEventListener("click", function() {
+                            let answer = this.nextElementSibling;
+                            answer.style.display =
+                                answer.style.display === "block" ? "none" : "block";
+                        });
+                }
+            });
+    </script>
+</body>
+
+</html>

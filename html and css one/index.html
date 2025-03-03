@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="menu-bar">
+        <h1 class="logo">Resume<span>Builder</span></h1>
+        <ul>
+            <li><a href="firstpage.html">Home</a></li>
+            <li><a href="About us .html">About</a></li>
+            <li><a href="index.html">create of resume</a></li>
+            <li><a href="contact.html">contact us</a></li>
+            <li><a href="Faq's.html">FAQ's</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showSection('personal-details')">
+          Personal Details
+        </button>
+            <button onclick="showSection('objective')">Objective</button>
+            <button onclick="showSection('education')">Education</button>
+            <button onclick="showSection('work-experience')">Experience</button>
+            <button onclick="showSection('projects')">Projects</button>
+            <button onclick="showSection('skills')">skills</button>
+            <button onclick="showSection('achievements')">Achievements</button>
+            <button onclick="generateResume()">Generate Resume</button>
+            <button onclick="downloadPDF()">Download PDF</button>
+        </div>
+        <div class="content">
+            <div id="personal-details" class="details-section">
+                <h2>Personal Details</h2>
+                <label>Full Name:</label>
+                <input type="text" id="name" required />
+                <label>Email:</label>
+                <input type="email" id="email" required />
+                <label>Phone:</label>
+                <input type="text" id="phone" required />
+                <label>LinkedIn Profile:</label>
+                <input type="text" id="linkedin" />
+                <button onclick="nextSection('objective')">Next</button>
+            </div>
+            <div id="objective" class="details-section">
+                <h2>Objective</h2>
+                <textarea id="objective-text" required></textarea>
+                <button onclick="nextSection('education')">Next</button>
+            </div>
+            <div id="education" class="details-section">
+                <h2>Education</h2>
+                <label>Degree Name</label>
+                <input type="text" id="degree-name" required />
+                <label>Specialization</label>
+                <input type="text" id="specialization" required />
+                <label>Year of Passout</label>
+                <select id="passout-year">
+            <option value="">Select Year</option>
+            <script>
+              for (let year = 2000; year <= new Date().getFullYear(); year++) {
+                document.write(`<option value="${year}">${year}</option>`);
+              }
+            </script>
+          </select>
+                <button onclick="nextSection('work-experience')">Next</button>
+            </div>
+            <div id="work-experience" class="details-section">
+                <h2>Experience</h2>
+                <label>Years of Experience</label>
+                <select id="experience-years" onchange="toggleExperience()">
+                    <option>choose Experience</option>
+            <option value="0">Fresher</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4+</option>
+          </select>
+                <div id="experience-details">
+                    <label>Title</label>
+                    <input type="text" id="title" />
+                    <label>Position</label>
+                    <input type="text" id="position" />
+                    <label>Start Date</label>
+                    <input type="text" id="start-date" />
+                    <label>End Date</label>
+                    <input type="text" id="end-date" />
+                    <label>Description</label>
+                    <textarea id="description"></textarea>
+                </div>
+                <button onclick="nextSection('projects')">Next</button>
+            </div>
+            <div id="projects" class="details-section">
+                <h2>Projects</h2>
+                <label>Title</label>
+                <input type="text" id="project-title" required />
+                <label>Description</label>
+                <textarea id="project-description" required></textarea>
+                <label>Tools Used</label>
+                <textarea id="project-tools" required></textarea>
+                <button onclick="nextSection('skills')">Next</button>
+            </div>
+            <div id="skills" class="details-section">
+                <h2>Skills</h2>
+                <textarea id="skills-text" required></textarea>
+                <button onclick="nextSection('achievements')">Next</button>
+            </div>
+            <div id="achievements" class="details-section">
+                <h2>Achievements</h2>
+                <textarea id="achievements-text"></textarea>
+                <button onclick="nextSection('generateResume()')">Next</button>
+            </div>
+        </div>
+        <div id="resumeTemplate" class="resume-template" style="display: none">
+            <div class="header">
+                <h1 id="resName"></h1>
+                <p id="resEmail"></p>
+                <p id="resPhone"></p>
+                <p id="resLinkedIn"></p>
+            </div>
+            <hr />
+            <div class="section">
+                <h2>Objective</h2>
+                <p id="resObjective"></p>
+            </div>
+            <div class="section">
+                <h2>Education</h2>
+                <p id="resEducation"></p>
+            </div>
+            <div class="section">
+                <h2>Work Experience</h2>
+                <p id="resExperience"></p>
+            </div>
+            <div class="section">
+                <h2>Skills</h2>
+                <p id="resSkills"></p>
+            </div>
+            <div class="section">
+                <h2>Projects</h2>
+                <p id="resProjects"></p>
+            </div>
+            <div class="achievement">
+                <h2>Achievements</h2>
+                <p id="resAchievements"></p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>
